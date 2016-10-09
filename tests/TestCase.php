@@ -1,6 +1,6 @@
 <?php
 
-namespace Zenapply\BambooHr\Api\Tests;
+namespace Zenapply\BambooHR\Api\Tests;
 
 class TestCase extends \PHPUnit_Framework_TestCase
 {

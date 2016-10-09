@@ -1,30 +1,30 @@
 <?php
 
-namespace Zenapply\BambooHr\Api\Tests;
+namespace Zenapply\BambooHR\Api\Tests;
 
-use Zenapply\BambooHr\Api\Tests\Mocks\BambooHrMocked;
-use Zenapply\BambooHr\Api\Tests\Mocks\RequestMocked;
-use Zenapply\BambooHr\Api\BambooHr;
-use Zenapply\BambooHr\Api\Exceptions\BambooHrInvalidApiKeyException;
+use Zenapply\BambooHR\Api\Tests\Mocks\BambooHRMocked;
+use Zenapply\BambooHR\Api\Tests\Mocks\RequestMocked;
+use Zenapply\BambooHR\Api\BambooHR;
+use Zenapply\BambooHR\Api\Exceptions\BambooHRInvalidApiKeyException;
 
-class BambooHrTest extends TestCase
+class BambooHRTest extends TestCase
 {
     public function testItCreatesSuccessfully()
     {
-        $r = new BambooHr("apiKey");
-        $this->assertInstanceOf(BambooHr::class, $r);
+        $r = new BambooHR("apiKey");
+        $this->assertInstanceOf(BambooHR::class, $r);
     }
 
     public function testCall()
     {
-        $v = new BambooHrMocked("apiKey");
+        $v = new BambooHRMocked("apiKey");
         $resp = $v->viddler_users_auth(array('user' => "user", 'password' => "pass"));
         $this->assertInternalType('array', $resp);
     }
 
     public function testCallPost()
     {
-        $v = new BambooHrMocked("apiKey");
+        $v = new BambooHRMocked("apiKey");
         $resp = $v->viddler_encoding_cancel(array('user' => "user", 'password' => "pass"));
         $this->assertInternalType('array', $resp);
     }
@@ -55,18 +55,18 @@ class BambooHrTest extends TestCase
     public function testExceptions()
     {
         $exceptions = [
-            "203"     => \Zenapply\BambooHr\Api\Exceptions\BambooHrUploadingDisabledException::class,
-            "202"     => \Zenapply\BambooHr\Api\Exceptions\BambooHrInvalidFormTypeException::class,
-            "200"     => \Zenapply\BambooHr\Api\Exceptions\BambooHrSizeLimitExceededException::class,
-            "105"     => \Zenapply\BambooHr\Api\Exceptions\BambooHrUsernameExistsException::class,
-            "104"     => \Zenapply\BambooHr\Api\Exceptions\BambooHrTermsNotAcceptedException::class,
-            "103"     => \Zenapply\BambooHr\Api\Exceptions\BambooHrInvalidPasswordException::class,
-            "102"     => \Zenapply\BambooHr\Api\Exceptions\BambooHrAccountSuspendedException::class,
-            "101"     => \Zenapply\BambooHr\Api\Exceptions\BambooHrForbiddenException::class,
-            "100"     => \Zenapply\BambooHr\Api\Exceptions\BambooHrNotFoundException::class,
-            "8"       => \Zenapply\BambooHr\Api\Exceptions\BambooHrInvalidApiKeyException::class,
-            "default" => \Zenapply\BambooHr\Api\Exceptions\BambooHrException::class,
-            "random"  => \Zenapply\BambooHr\Api\Exceptions\BambooHrException::class
+            "203"     => \Zenapply\BambooHR\Api\Exceptions\BambooHRUploadingDisabledException::class,
+            "202"     => \Zenapply\BambooHR\Api\Exceptions\BambooHRInvalidFormTypeException::class,
+            "200"     => \Zenapply\BambooHR\Api\Exceptions\BambooHRSizeLimitExceededException::class,
+            "105"     => \Zenapply\BambooHR\Api\Exceptions\BambooHRUsernameExistsException::class,
+            "104"     => \Zenapply\BambooHR\Api\Exceptions\BambooHRTermsNotAcceptedException::class,
+            "103"     => \Zenapply\BambooHR\Api\Exceptions\BambooHRInvalidPasswordException::class,
+            "102"     => \Zenapply\BambooHR\Api\Exceptions\BambooHRAccountSuspendedException::class,
+            "101"     => \Zenapply\BambooHR\Api\Exceptions\BambooHRForbiddenException::class,
+            "100"     => \Zenapply\BambooHR\Api\Exceptions\BambooHRNotFoundException::class,
+            "8"       => \Zenapply\BambooHR\Api\Exceptions\BambooHRInvalidApiKeyException::class,
+            "default" => \Zenapply\BambooHR\Api\Exceptions\BambooHRException::class,
+            "random"  => \Zenapply\BambooHR\Api\Exceptions\BambooHRException::class
         ];
 
         $v = new RequestMocked("apiKey", "method", []);

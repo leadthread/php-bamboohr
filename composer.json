@@ -11,12 +11,12 @@
     "license": "MIT",  
     "autoload":{
     	"psr-4":{
-            "Zenapply\\BambooHr\\Api\\":"src/"
+            "Zenapply\\BambooHR\\Api\\":"src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Zenapply\\BambooHr\\Api\\Tests\\": "tests/"
+            "Zenapply\\BambooHR\\Api\\Tests\\": "tests/"
         }
     },
     "require": {

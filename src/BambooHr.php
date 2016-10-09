@@ -1,6 +1,6 @@
 <?php
 
-namespace Zenapply\BambooHr\Api;
+namespace Zenapply\BambooHR\Api;
 
 /*
 
@@ -245,7 +245,7 @@ class BambooCurlHTTP implements BambooHTTP {
  * ?>
  * </code>
  */
-class BambooHr {
+class BambooHR {
     protected $companyDomain;
     protected $httpHandler;
     protected $baseUrl="https://api.bamboohr.com/api/gateway.php";
